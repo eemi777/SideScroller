@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
 
-    public GameObject gameOverUI;
+    public GameObject gameOverUI; // UI joka tulee näkyviin kun pelaaja kuolee
 
-    public GameObject player;
+    public GameObject player; // peliobjekti pelaaja
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,18 @@ public class GameManagerScript : MonoBehaviour
         
     }
 
-    public void playerDead()
+    public void playerDead() // kutsutaan kun pelaaja kuolee
     {
         gameOverUI.SetActive(true);
     }
 
-    public void restart()
+    public void restart() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
